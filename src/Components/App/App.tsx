@@ -10,6 +10,10 @@ export interface IState {
 
 const App: React.FC<IState> = () => {
   console.log("testttt");
+
+  console.log("testttt");
+  console.log("testttt");
+
   const [modal, setModal] = useState<boolean>(false);
   const changedLogging = (): void => {
     setModal(!modal);
