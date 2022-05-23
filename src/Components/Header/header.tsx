@@ -5,7 +5,12 @@ import Stack from "@mui/material/Stack";
 
 import "./header.css";
 
-const Header = () => {
+export interface IProps {
+  setModal: Function;
+}
+
+const Header: React.FC<IProps> = ({ setModal }) => {
+  console.log(setModal);
   return (
     <div className='Header'>
       <Stack
