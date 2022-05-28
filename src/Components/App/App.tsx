@@ -3,16 +3,7 @@ import "./App.css";
 import Header from "../Header/header";
 import Modal from "../Modal/modal";
 
-export interface IState {
-  setModal: Function;
-  changedLogging: Function;
-}
-
-const App: React.FC<IState> = () => {
-  console.log("testttt");
-
-  console.log("testttt");
-  console.log("testttt");
+const App = () => {
 
   const [modal, setModal] = useState<boolean>(false);
   const changedLogging = (): void => {
