@@ -1,9 +1,16 @@
+import React, { useDebugValue, useContext } from "react";
+
+import { AppContext } from "../App/App";
+
 import { TextField } from "@mui/material";
 import { Switch } from "@mui/material";
 import { Button } from "@mui/material";
 import { Grid } from "@mui/material";
 
 const Modal = () => {
+  const { useModal } = useContext(AppContext);
+  const { destination } = useModal;
+  useDebugValue(useModal);
   return (
     <div>
       <form>

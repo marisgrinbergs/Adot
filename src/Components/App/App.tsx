@@ -1,27 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, createContext } from "react";
 import "./App.css";
 import Header from "../Header/header";
 import Modal from "../Modal/modal";
+import useModal from "./useModal";
 
-export interface IState {
-  setModal: Function;
-  changedLogging: Function;
+interface IState {
+  modal?: boolean;
+  changedLogging?: Function;
+  destination?: string;
+  adress?: string;
+  url?: string;
+  residents?: string;
+  hotels?: string;
+  avgPay?: string;
+  superficy?: string;
 }
 
+export const AppContext = createContext<IState | any>({});
+
 const App: React.FC<IState> = () => {
-  console.log("testttt");
-
-  console.log("testttt");
-  console.log("testttt");
-
   const [modal, setModal] = useState<boolean>(false);
-  const changedLogging = (): void => {
+  const changedLogging: Function = (): void => {
     setModal(!modal);
+    console.log("apres set modale", modal);
   };
+  const {
+    destination,
+    address,
+    url,
+    residents,
+    hotels,
+    avgPay,
+    superficy,
+  }: any = useModal();
   return (
     <div className='App'>
-      <Header setModal={changedLogging} />
-      <Modal />
+      <AppContext.Provider
+        value={{
+          changedLogging,
+          useModal,
+        }}>
+        <Header />
+        {modal && <Modal />}
+      </AppContext.Provider>
     </div>
   );
 };
