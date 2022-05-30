@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import "./App.css";
 
 const Cards = () => {
-  const [modal, setModal] = useState<boolean>(false);
-  return <div className='Cards'></div>;
+  console.log("cards");
+  return (
+    <div className='Cards'>
+      <div>erggergergerheherherh</div>
+    </div>
+  );
 };
 
 export default Cards;

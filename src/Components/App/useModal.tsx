@@ -18,7 +18,7 @@ interface IState {
   superficy?: string;
 }
 
-const useModal: React.FC<IState> = (): any => {
+const useModal = (): any => {
   const [destination, setDestination] = useState("");
   const [address, setAddress] = useState("");
   const [url, setUrl] = useState("");
@@ -30,11 +30,13 @@ const useModal: React.FC<IState> = (): any => {
   const destinationHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     setDestination(e.target.value);
+    console.log("destionation", destination);
   };
 
   const addressHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
     e.preventDefault();
     setAddress(e.target.value);
+    console.log("address", address);
   };
 
   const urlHandler = (e: React.ChangeEvent<HTMLInputElement>): void => {
@@ -61,7 +63,15 @@ const useModal: React.FC<IState> = (): any => {
     e.preventDefault();
     setSuperficy(e.target.value);
   };
-
+  const dataState = {
+    destination,
+    address,
+    url,
+    residents,
+    hotels,
+    avgPay,
+    superficy,
+  };
   return {
     destinationHandler,
     addressHandler,
@@ -77,6 +87,7 @@ const useModal: React.FC<IState> = (): any => {
     hotels,
     avgPay,
     superficy,
+    dataState,
   };
 };
 
